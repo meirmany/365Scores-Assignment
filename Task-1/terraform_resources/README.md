@@ -1,5 +1,6 @@
 # Task Overview
-## This project demonstrates a production AWS infrastructure deployment using Terraform. It provisions:
+## This project demonstrates a production AWS infrastructure deployment using Terraform.  
+   It provisions:
 - A VPC with two public and two private subnets.
 - Route tables for each subnet.
 - A security group that allows inbound HTTP (80) and HTTPS (443) traffic.
@@ -26,9 +27,6 @@
 - $ `git clone https://github.com/meirmany/365Scores-Assignment.git`
 - $ `cd Task-1/terraform_resources`
 - $ `terraform init`
-
-
-## Workspaces and Environment-Specific Variables
 
 **List workspaces:**
 - $ `terraform workspace list`
