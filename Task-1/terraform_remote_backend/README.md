@@ -13,8 +13,8 @@
 - Install aws cli with updated version
 
 **Setup Instructions:**
-- $ `https://github.com/meirmany/365Scores-Assignment.git` 
-- $ `cd Task-1/terraform_remote_backend`
+- $ `git clone https://github.com/meirmany/365Scores-Assignment.git` 
+- $ `cd 365Scores-Assignment/Task-1/terraform_remote_backend`
 - $ `aws configure`
 - $ `terraform init`
 - $ `terraform plan`
