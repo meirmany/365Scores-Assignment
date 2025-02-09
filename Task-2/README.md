@@ -9,7 +9,7 @@
    It uses a pre-configured view that filters resources by a specific tag (e.g., `ENV`). The output is saved to `filtered_aws_resources.json`.  
 
 2. **Services Enrichment (`detailed_services.py`):**  
-   This script reads the filtered output from Phase 1 and, for each resource (currently for EC2, RDS, and S3),  
+   This script reads the filtered output from Phase 1 and, for each service (currently for EC2, RDS, and S3, but you may add other services as needed),  
    retrieves detailed information using service-specific AWS API calls. The enriched results are saved to `detailed_aws_services.json`.
 
 ---
