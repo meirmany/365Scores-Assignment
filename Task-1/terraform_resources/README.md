@@ -41,7 +41,7 @@
 - $ `terraform apply -var-file=environments/dev/terraform.tfvars`
 
 **Verifying Resources**
-Check your AWS Console for VPC, subnets, ALB, and Route 53 records
+- Check your AWS Console for VPC, subnets, ALB, and Route 53 records
 
 **Destroying Resources**
 - $ `terraform destroy -var-file=environments/dev/terraform.tfvars`
