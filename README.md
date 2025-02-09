@@ -1,6 +1,6 @@
 # 365Scores-Assignment
 
-## Detailed explaination can be found on each Task Directory
+## Detailed explanation can be found on each Task Directory
 
 **Task-1 - Terraform IAC**
 
