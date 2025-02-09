@@ -25,7 +25,7 @@
 
 **Initialize Terraform**
 - $ `git clone https://github.com/meirmany/365Scores-Assignment.git`
-- $ `cd Task-1/terraform_resources`
+- $ `cd 365Scores-Assignment/Task-1/terraform_resources`
 - $ `terraform init`
 
 **List workspaces:**
