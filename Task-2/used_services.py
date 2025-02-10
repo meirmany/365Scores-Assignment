@@ -5,18 +5,6 @@ import argparse
 import botocore.exceptions
 
 def list_resources(region, view_arn, max_results=100):
-    """
-    Uses AWS Resource Explorer API (resource-explorer-2) to list resources in the given region.
-    This version relies on the provided view to filter resources.
-    
-    Parameters:
-      - region (str): AWS region to query.
-      - view_arn (str): The ARN of the view to use for the query.
-      - max_results (int): Maximum results per page.
-    
-    Returns:
-      A list of resource dictionaries.
-    """
     client = boto3.client("resource-explorer-2", region_name=region)
     all_resources = []
     next_token = None
@@ -61,4 +49,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

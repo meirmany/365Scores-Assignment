@@ -9,7 +9,6 @@ import botocore.exceptions
 def describe_ec2(region, arn):
     """Fetch detailed information for an EC2 instance using describe_instances."""
     ec2_client = boto3.client("ec2", region_name=region)
-    # Extract instance ID from ARN (expected format: .../instance/i-XXXXXXXXXXXX)
     instance_id = arn.split("/")[-1]
     if not instance_id.startswith("i-"):
         return {}
@@ -23,7 +22,7 @@ def describe_ec2(region, arn):
     return {}
 
 def describe_rds(region):
-    """Fetch detailed information for all RDS instances in the region."""
+    """Fetch detailed information for RDS instances in the region."""
     rds_client = boto3.client("rds", region_name=region)
     try:
         response = rds_client.describe_db_instances()
@@ -33,8 +32,7 @@ def describe_rds(region):
     return []
 
 def describe_s3(region):
-    """Fetch detailed information for all S3 buckets.
-       Note: S3 buckets are global; this returns the list from the S3 client."""
+    """Fetch detailed information for S3 buckets."""
     s3_client = boto3.client("s3", region_name=region)
     try:
         response = s3_client.list_buckets()
@@ -43,7 +41,6 @@ def describe_s3(region):
         print(f"Error describing S3 buckets: {e}")
     return []
 
-# Mapping of service names to their detail-fetching functions.
 SERVICE_DESCRIBERS = {
     "ec2": lambda region, arn: describe_ec2(region, arn),
     "rds": lambda region, _: describe_rds(region),
@@ -52,11 +49,6 @@ SERVICE_DESCRIBERS = {
 }
 
 def get_service_details(region, resource):
-    """
-    Retrieve additional details for a resource using the appropriate service API.
-    
-    If no additional details are available or the service is not mapped, return an empty dict.
-    """
     service = resource.get("Service", "").lower()
     arn = resource.get("Arn", "")
     if service in SERVICE_DESCRIBERS and arn:
@@ -67,13 +59,8 @@ def get_service_details(region, resource):
     return {}
 
 def get_detailed_resources(region, resources):
-    """
-    Iterates over the resource list and enriches each with additional details
-    for known services.
-    """
     enriched = []
     for resource in resources:
-        # Only enrich if the service is one we care about
         service = resource.get("Service", "").lower()
         if service in SERVICE_DESCRIBERS:
             resource["Details"] = get_service_details(region, resource)
@@ -103,4 +90,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
