@@ -75,4 +75,4 @@ python3 `detailed_resources.py` --input-file `filtered_aws_resources.json` --reg
 ```
 
 This command reads the filtered resource list and enriches details for defined resources (currently EC2, RDS, and S3),  
-and saving the output to `detailed_aws_services.json`.
+and saving the output to `detailed_aws_services.json`.  
